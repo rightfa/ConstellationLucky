@@ -55,7 +55,7 @@ public class NewsListAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		LinearLayout ll = new LinearLayout(context);
 		Pair<String,String> oneNew = news.get(position);
-		Log.i("position", String.valueOf(position));
+		//Log.i("position", String.valueOf(position));
 		ll.setGravity(Gravity.LEFT);
 		ll.setPadding(10, 5, 5, 5);
 		int tag =( position == 0)? 0 : ((position == 1 || position == 2)? 1: 2);
@@ -73,7 +73,6 @@ public class NewsListAdapter extends BaseAdapter {
 				tp.setFakeBoldText(true);
 				LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				ll.addView(tv,tv_params);
-				ll.setTag(0);
 				
 			}else if(position == 1 || position == 2)
 			{
@@ -87,14 +86,12 @@ public class NewsListAdapter extends BaseAdapter {
 				LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(300, 200);
 				img_params.weight = 3;
 				ll.addView(img,img_params);
-				ll.setTag(1);
 			}else
 			{
 				TextView tv = new TextView(context);
 				tv.setTextSize(20);
 				LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 				ll.addView(tv,tv_params);
-				ll.setTag(2);
 			}
 		}else
 		{
@@ -119,7 +116,7 @@ public class NewsListAdapter extends BaseAdapter {
 			tv= (TextView) ll.getChildAt(0);
 		}
 		tv.setText(oneNew.first);
-		
+		ll.setTag(oneNew);
 		return ll;
 	}
 

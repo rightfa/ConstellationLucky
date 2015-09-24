@@ -3,7 +3,9 @@ package com.qlfsoft.constellationlucky;
 import com.qlfsoft.constellationlucky.net.NewsHttpClient;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -31,11 +33,18 @@ public class NewsActivity extends Activity {
 		
 		lv_main.setOnItemClickListener(new OnItemClickListener(){
 
+			@SuppressWarnings("unchecked")
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> parent, View view, int position,
+					long id) {
 				// TODO Auto-generated method stub
-				
+				Pair<String,String> data = (Pair<String, String>) view.getTag();
+				String hrf = data.second;
+				Intent intent =  new Intent();
+				intent.putExtra("href", hrf);
+				intent.putExtra("title", data.first);
+				intent.setClass(NewsActivity.this, NewsContentActivity.class);
+				startActivity(intent);
 			}
 			
 		});

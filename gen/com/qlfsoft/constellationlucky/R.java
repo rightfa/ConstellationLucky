@@ -123,7 +123,6 @@ public final class R {
         public static final int tab_ll_4=0x7f090009;
         public static final int tab_ll_5=0x7f09000a;
         public static final int tabhost=0x7f090005;
-        public static final int textView1=0x7f09000e;
         public static final int textView2=0x7f090010;
         public static final int textView3=0x7f090012;
         public static final int textView4=0x7f090014;
@@ -138,6 +137,7 @@ public final class R {
         public static final int tv_lucky_constellation=0x7f09002e;
         public static final int tv_lucky_num=0x7f090029;
         public static final int tv_match_constellation=0x7f09002a;
+        public static final int tv_newsContent=0x7f09000e;
         public static final int tv_short_message=0x7f090016;
         public static final int tv_talk_num=0x7f090027;
         public static final int tv_title=0x7f09000b;
@@ -157,14 +157,15 @@ public final class R {
         public static final int main_lucky=0x7f030003;
         public static final int month_layout=0x7f030004;
         public static final int news_layout=0x7f030005;
-        public static final int splash_layout=0x7f030006;
-        public static final int tabitem=0x7f030007;
-        public static final int today_layout=0x7f030008;
-        public static final int tomorrow_layout=0x7f030009;
-        public static final int top_bar=0x7f03000a;
-        public static final int top_bar_2=0x7f03000b;
-        public static final int week_layout=0x7f03000c;
-        public static final int year_layout=0x7f03000d;
+        public static final int newscontent_layout=0x7f030006;
+        public static final int splash_layout=0x7f030007;
+        public static final int tabitem=0x7f030008;
+        public static final int today_layout=0x7f030009;
+        public static final int tomorrow_layout=0x7f03000a;
+        public static final int top_bar=0x7f03000b;
+        public static final int top_bar_2=0x7f03000c;
+        public static final int week_layout=0x7f03000d;
+        public static final int year_layout=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f080000;
