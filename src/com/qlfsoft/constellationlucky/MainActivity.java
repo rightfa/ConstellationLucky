@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 		LocalActivityManager localActivityManager = new LocalActivityManager(this,false);
 		localActivityManager.dispatchCreate(savedInstanceState);
 		tabhost.setup(localActivityManager);
-		for(int i = 0; i < tabNames.length; i++)
+		for(int i = 0; i < 2; i++)//1.2版本只添加星闻和运势
 		{
 			Intent intent = new Intent();
 			switch(i)

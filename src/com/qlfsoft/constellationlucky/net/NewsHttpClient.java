@@ -10,12 +10,15 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.qlfsoft.constellationlucky.NewsActivity;
+import com.qlfsoft.constellationlucky.R;
 import com.qlfsoft.constellationlucky.adapter.NewsListAdapter;
 
 public class NewsHttpClient implements Runnable {
@@ -52,6 +55,9 @@ public class NewsHttpClient implements Runnable {
 				{
 					Element ele = eles.get(i);
 					String title = ele.text();
+					//去掉**期的内容
+					if(title.contains("期"))
+						continue;
 					String href = ele.attr("abs:href");
 					Pair<String,String> data = new Pair<String,String>(title, href);
 					//Log.i("title", title);
@@ -65,7 +71,17 @@ public class NewsHttpClient implements Runnable {
 					doc = Jsoup.connect(url).timeout(8000).get();
 					eles = doc.select("#Cnt-Main-Article-QQ IMG");
 					String img_url = eles.first().attr("src");
-					Bitmap bmp = Utils.GetHttpImage(img_url);
+					Bitmap bmp = null;
+					//去除加载的空图片
+					if(img_url.contains("ajax-loadernone.gif"))
+					{
+						datas.remove(j);
+						j--;
+						continue;
+					}else
+					{
+						bmp = Utils.GetHttpImage(img_url);
+					}
 					bitmaps.add(bmp);
 				}
 				

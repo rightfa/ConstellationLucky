@@ -5,8 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.qlfsoft.constellationlucky.R;
+
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.Log;
 import android.util.Pair;
@@ -58,41 +62,12 @@ public class NewsListAdapter extends BaseAdapter {
 		//Log.i("position", String.valueOf(position));
 		ll.setGravity(Gravity.LEFT);
 		ll.setPadding(10, 5, 5, 5);
-		int tag =( position == 0)? 0 : ((position == 1 || position == 2)? 1: 2);
-		if(null == convertView || tag != Integer.valueOf(convertView.getTag().toString()))
+		if(null == convertView)
 		{
-			if(0 == position)
-			{
-				ll.setOrientation(LinearLayout.VERTICAL);
-				ImageView img = new ImageView(context);
-				LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				ll.addView(img,img_params);
-				TextView tv = new TextView(context);
-				tv.setTextSize(30);
-				TextPaint tp = tv.getPaint();
-				tp.setFakeBoldText(true);
-				LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				ll.addView(tv,tv_params);
-				
-			}else if(position == 1 || position == 2)
-			{
-				ll.setOrientation(LinearLayout.HORIZONTAL);
-				TextView tv = new TextView(context);
-				tv.setTextSize(30);
-				LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-				tv_params.weight = 7;
-				ll.addView(tv,tv_params);
-				ImageView img = new ImageView(context);
-				LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(300, 200);
-				img_params.weight = 3;
-				ll.addView(img,img_params);
-			}else
-			{
-				TextView tv = new TextView(context);
-				tv.setTextSize(20);
-				LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-				ll.addView(tv,tv_params);
-			}
+			TextView tv = new TextView(context);
+			ll.addView(tv);
+			ImageView img = new ImageView(context);
+			ll.addView(img);
 		}else
 		{
 			ll = (LinearLayout) convertView;
@@ -100,20 +75,39 @@ public class NewsListAdapter extends BaseAdapter {
 		
 		TextView tv;
 		ImageView img;
+		tv = (TextView) ll.getChildAt(0);
+		img = (ImageView)ll.getChildAt(1);
+		LinearLayout.LayoutParams tv_params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		tv.setLayoutParams(tv_params);
+		TextPaint tp = tv.getPaint();
+		Bitmap bitmap = null;
+		if(position < 3)
+			bitmap =bitmaps.get(position);
 		if(position == 0)
 		{
-			tv = (TextView)ll.getChildAt(1);
-			img = (ImageView) ll.getChildAt(0);
+			ll.setOrientation(LinearLayout.VERTICAL);
+			img.setVisibility(View.VISIBLE);
 			img.setAdjustViewBounds(true);
-			img.setImageBitmap(bitmaps.get(position));
+			img.setImageBitmap(bitmap);
+			LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+			img.setLayoutParams(img_params);
+			tv.setTextSize(30);	
+			tp.setFakeBoldText(true);
 		}
 		else if (position == 1 || position== 2)
 		{
-			tv= (TextView) ll.getChildAt(0);
-			img = (ImageView)ll.getChildAt(1);
-			img.setImageBitmap(bitmaps.get(position));
-		}else{
-			tv= (TextView) ll.getChildAt(0);
+			ll.setOrientation(LinearLayout.HORIZONTAL);
+			img.setVisibility(View.VISIBLE);
+			img.setImageBitmap(bitmap);
+			LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(300, 200);
+			img.setLayoutParams(img_params);
+			tv.setTextSize(30);
+			tp.setFakeBoldText(false);
+		}else
+		{
+			img.setVisibility(View.GONE);
+			tv.setTextSize(20);
+			tp.setFakeBoldText(false);
 		}
 		tv.setText(oneNew.first);
 		ll.setTag(oneNew);
