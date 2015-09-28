@@ -1,14 +1,20 @@
 package com.qlfsoft.constellationlucky.net;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -65,6 +71,8 @@ public class NewsHttpClient implements Runnable {
 					datas.add(data);
 				}
 				
+				SaveData();
+				
 				for(int j = 0; j< 3; j++)//获取前面3张图片
 				{
 					String url = datas.get(j).second;
@@ -81,6 +89,21 @@ public class NewsHttpClient implements Runnable {
 					}else
 					{
 						bmp = Utils.GetHttpImage(img_url);
+						String path = newsactivity.getCacheDir() + "/" + String.valueOf(img_url.hashCode());
+						File f = new File(path);
+						if(!f.exists())
+						{
+							FileOutputStream out = new FileOutputStream(f);
+							if(img_url.contains(".png"))
+							{
+								bmp.compress(Bitmap.CompressFormat.PNG, 100, out);
+							}else if(img_url.contains(".jpg") || img_url.contains(".jpeg"))
+							{
+								bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
+							}
+							out.flush();
+							out.close();
+						}
 					}
 					bitmaps.add(bmp);
 				}
@@ -110,4 +133,17 @@ public class NewsHttpClient implements Runnable {
 		});
 	}
 
+	/**
+	 * 存储星闻列表
+	 */
+	private void SaveData()
+	{
+		SharedPreferences sp = newsactivity.getSharedPreferences("newsgeneral", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sp.edit();
+		for(Pair<String,String> item : datas)
+		{
+			editor.putString(item.first, item.second);
+		}
+		editor.commit();
+	}
 }
