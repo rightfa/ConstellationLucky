@@ -73,6 +73,7 @@ public class NewsHttpClient implements Runnable {
 				
 				SaveData();
 				
+				List<Pair<String,String>> title_imgs = new ArrayList<Pair<String,String>>();//图片标题对应
 				for(int j = 0; j< 3; j++)//获取前面3张图片
 				{
 					String url = datas.get(j).second;
@@ -88,8 +89,12 @@ public class NewsHttpClient implements Runnable {
 						continue;
 					}else
 					{
+						//根据url从网络上获取图片
 						bmp = Utils.GetHttpImage(img_url);
+						
+						//保存图片到缓存
 						String path = newsactivity.getCacheDir() + "/" + String.valueOf(img_url.hashCode());
+						title_imgs.add(new Pair<String,String>(datas.get(j).first,path));
 						File f = new File(path);
 						if(!f.exists())
 						{
@@ -107,6 +112,7 @@ public class NewsHttpClient implements Runnable {
 					}
 					bitmaps.add(bmp);
 				}
+				SaveImageTitle(title_imgs);
 				
 				ListViewPost(newsactivity.getLv_main());
 				
@@ -140,6 +146,23 @@ public class NewsHttpClient implements Runnable {
 	{
 		SharedPreferences sp = newsactivity.getSharedPreferences("newsgeneral", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sp.edit();
+		editor.clear();
+		for(Pair<String,String> item : datas)
+		{
+			editor.putString(item.first, item.second);
+		}
+		editor.commit();
+	}
+	
+	/**
+	 * 保存标题对应的图片
+	 * @param datas
+	 */
+	private void SaveImageTitle(List<Pair<String,String>> datas)
+	{
+		SharedPreferences sp = newsactivity.getSharedPreferences("titleimages", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sp.edit();
+		editor.clear();
 		for(Pair<String,String> item : datas)
 		{
 			editor.putString(item.first, item.second);
