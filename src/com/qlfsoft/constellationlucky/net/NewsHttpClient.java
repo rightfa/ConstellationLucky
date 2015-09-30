@@ -144,14 +144,17 @@ public class NewsHttpClient implements Runnable {
 	 */
 	private void SaveData()
 	{
-		SharedPreferences sp = newsactivity.getSharedPreferences("newsgeneral", Context.MODE_PRIVATE);
-		SharedPreferences.Editor editor = sp.edit();
-		editor.clear();
-		for(Pair<String,String> item : datas)
+		SharedPreferences sp0 = newsactivity.getSharedPreferences("newsTitle", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor0 = sp0.edit();
+		SharedPreferences sp1 = newsactivity.getSharedPreferences("newsURL", Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor1 = sp1.edit();
+		editor1.clear();
+		for(int i = 0; i< datas.size(); i++)
 		{
-			editor.putString(item.first, item.second);
+			editor0.putString(String.valueOf(i), datas.get(i).first);
+			editor1.putString(String.valueOf(i), datas.get(i).second);
 		}
-		editor.commit();
+		editor0.commit();
 	}
 	
 	/**
@@ -160,12 +163,12 @@ public class NewsHttpClient implements Runnable {
 	 */
 	private void SaveImageTitle(List<Pair<String,String>> datas)
 	{
-		SharedPreferences sp = newsactivity.getSharedPreferences("titleimages", Context.MODE_PRIVATE);
+		SharedPreferences sp = newsactivity.getSharedPreferences("newsImage", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sp.edit();
 		editor.clear();
-		for(Pair<String,String> item : datas)
+		for(int i = 0;i < datas.size();i++)
 		{
-			editor.putString(item.first, item.second);
+			editor.putString(String.valueOf(i), datas.get(i).second);
 		}
 		editor.commit();
 	}

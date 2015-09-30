@@ -51,6 +51,7 @@ public class NewsContentActivity extends Activity {
 			case NewsContentActivity.NEWCONTENTRECEIVED:
 				String content = msg.getData().getString("content");
 				htmlContent = content.replace(title, "").replace("http://img1.gtimg.com/astro/pics/hv1/91/165/1741/113250691.jpg", "");
+				htmlContent = htmlContent.replace("http://img1.gtimg.com/astro/pics/hv1/15/212/1865/121325700.jpg", "");
 				String reg1 = "<script>[\\s\\S]*</script>";
 				String reg2 = "<style>[\\s\\S]*</style>";
 				String reg3 = "<p class=\"v-runtime\">[\\s\\S]*ÕýÔÚ²¥·Å</p>";
