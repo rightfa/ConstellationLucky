@@ -148,6 +148,7 @@ public class NewsHttpClient implements Runnable {
 		SharedPreferences.Editor editor0 = sp0.edit();
 		SharedPreferences sp1 = newsactivity.getSharedPreferences("newsURL", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor1 = sp1.edit();
+		editor0.clear();
 		editor1.clear();
 		for(int i = 0; i< datas.size(); i++)
 		{
@@ -155,6 +156,7 @@ public class NewsHttpClient implements Runnable {
 			editor1.putString(String.valueOf(i), datas.get(i).second);
 		}
 		editor0.commit();
+		editor1.commit();
 	}
 	
 	/**

@@ -101,7 +101,7 @@ public class NewsListAdapter extends BaseAdapter {
 			img.setImageBitmap(bitmap);
 			LinearLayout.LayoutParams img_params = new LinearLayout.LayoutParams(300, 200);
 			img.setLayoutParams(img_params);
-			tv.setTextSize(30);
+			tv.setTextSize(25);
 			tp.setFakeBoldText(false);
 		}else
 		{

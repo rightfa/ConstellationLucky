@@ -60,7 +60,7 @@ public class NewsActivity extends Activity {
 		{
 			for(int i = 0; i < 3; i++)
 			{
-				String imgPath = String.valueOf((sp2.getString(String.valueOf(i), "")).hashCode());
+				String imgPath = sp2.getString(String.valueOf(i), "");
 				Bitmap bmp = BitmapFactory.decodeFile(imgPath);
 				bitmaps.add(bmp);
 			}
