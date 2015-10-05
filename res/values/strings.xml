@@ -5,6 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world！</string>
     <string name="constellation_title">星座运势</string>
+    <string name="do_testing_title">测试</string>
     <string-array name="tabStrs">
         <item >今日</item>
         <item >明日</item>
@@ -29,7 +30,7 @@
     <string-array name="main_menu">
         <item >星闻</item>
         <item >运势</item>
-        <item >爱情</item>
+        <item >测试</item>
         <item >个人信息</item>
     </string-array>
 

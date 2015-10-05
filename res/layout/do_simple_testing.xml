@@ -1,0 +1,333 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/navpage" >
+
+    <RelativeLayout
+        android:id="@+id/main_top"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/title_bar" >
+     	<ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_back_background" />
+
+        <TextView
+            android:id="@+id/simple_tab_tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="50.0dip"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:padding="12.0dip"
+            android:text="@string/do_testing_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/size_20" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/main_top"
+        android:background="@color/navpage"
+        android:scrollbarThumbVertical="@drawable/scrollbar_handle_vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical"
+            android:paddingBottom="10.0dip" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="0.0dip"
+                android:background="@drawable/shape_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="8.0dip"
+                android:background="@drawable/shape_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/tests_result_linear"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_bg_top_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="40.0dip"
+                    android:orientation="horizontal"
+                    android:padding="12.0dip" >
+
+                    <TextView
+                        android:id="@+id/do_simple_test_name"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4.0dip"
+                        android:layout_marginRight="4.0dip"
+                        android:layout_weight="1.0"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" 
+                        android:lines="2"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="@drawable/shape_line" />
+                <LinearLayout
+                    android:id="@+id/answer_linear"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="40.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip" >
+                    <RadioGroup
+                        android:id="@+id/simple_questionGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <RadioButton
+                            android:id="@+id/simple_questionA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20"
+                            android:visibility="visible" />
+
+                        <RadioButton
+                            android:id="@+id/simple_questionB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20" 
+                            android:visibility="visible"
+                            />
+                        <RadioButton
+                            android:id="@+id/simple_questionC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20" />
+                        <RadioButton
+                            android:id="@+id/simple_questionD"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20" />
+                        <RadioButton
+                            android:id="@+id/simple_questionE"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20" />
+                        <RadioButton
+                            android:id="@+id/simple_questionF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/size_20" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/shape_bg"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/simple_answerA"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView06"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerA"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/simple_answerB"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerB"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/simple_answerC"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerC"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/simple_answerD"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerD"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/simple_answerE"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerE"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/simple_answerF"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/comm_shakebg_selected"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="20.0dip"
+                    android:orientation="horizontal"
+                    android:padding="8.0dip"
+                    android:visibility="invisible" >
+
+                    <ImageView
+                        android:id="@+id/ImageView01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:src="@drawable/more_game" />
+
+                    <TextView
+                        android:id="@+id/tv_answerF"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_weight="1.0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_20" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

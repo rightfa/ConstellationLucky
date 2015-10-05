@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navpage">#ffe1e0de</color>
+     <color name="black">#ff000000</color>
+     <color name="plugin_readerapp_header_color_news">#ff91cd1a</color>
+     <color name="gray">#ADADAD</color>
+     <color name="redColor">#f34a72</color>
+     <color name="lightRedColor">#f8c0cd</color>
+     <color name="lightTabColor">#e4fdfa</color>
+</resources>

@@ -1,5 +1,9 @@
 package com.qlfsoft.constellationlucky;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 
 import android.app.Activity;
@@ -46,5 +50,26 @@ public class SplashActivity extends Activity {
 			
 		}, 3000);
 		
+		//拷贝assets下的数据库到Data文件夹下
+		File dbFile = new File(this.getFilesDir(),"constellation.db");
+		if(!dbFile.exists())
+		{
+			try {
+				InputStream is = this.getAssets().open("constellation.db");
+				FileOutputStream fos = new FileOutputStream(dbFile);
+				int len = 0;
+				byte[] buffer = new byte[1024];
+				while((len = is.read(buffer))!= -1)
+				{
+					fos.write(buffer, 0, len);
+				}
+				is.close();
+				fos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 	}
 }

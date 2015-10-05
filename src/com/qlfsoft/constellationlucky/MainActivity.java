@@ -1,8 +1,13 @@
 package com.qlfsoft.constellationlucky;
 
+import com.qlfsoft.constellationlucky.test.TestActivity;
+
 import android.app.Activity;
 import android.app.LocalActivityManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +22,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	private TabHost tabhost;
+	private final String lastMainActivityTab="lastMainActivityTab";
 	@SuppressWarnings("deprecation")
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -34,7 +40,7 @@ public class MainActivity extends Activity {
 		LocalActivityManager localActivityManager = new LocalActivityManager(this,false);
 		localActivityManager.dispatchCreate(savedInstanceState);
 		tabhost.setup(localActivityManager);
-		for(int i = 0; i < 2; i++)//1.2版本只添加星闻和运势
+		for(int i = 0; i < 3; i++)//1.2版本只添加星闻和运势
 		{
 			Intent intent = new Intent();
 			switch(i)
@@ -43,10 +49,12 @@ public class MainActivity extends Activity {
 				intent.setClass(MainActivity.this, NewsActivity.class);
 				break;
 			case 1:
-			case 2:
-			case 3:
 				intent.setClass(MainActivity.this, LuckyEnterActivity.class);
 				break;
+			case 2:
+				intent.setClass(MainActivity.this, TestActivity.class);
+				break;
+				
 			}
 			tabhost.addTab(tabhost.newTabSpec(tabIds[i]).setIndicator(getMenuItem(tabImgs[i],tabNames[i])).setContent(intent));
 		}
@@ -61,5 +69,25 @@ public class MainActivity extends Activity {
 		TextView tv = (TextView) ll.findViewById(R.id.btn_name);
 		tv.setText(name);
 		return ll;
+	}
+	
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		SharedPreferences sp = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+		int currentTab = sp.getInt(lastMainActivityTab, 0);
+		tabhost.setCurrentTab(currentTab);
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		int currentTab = tabhost.getCurrentTab();
+		SharedPreferences sp = this.getSharedPreferences("Setting", Context.MODE_PRIVATE);
+		Editor editor = sp.edit();
+		editor.putInt(lastMainActivityTab, currentTab);
+		editor.commit();
 	}
 }

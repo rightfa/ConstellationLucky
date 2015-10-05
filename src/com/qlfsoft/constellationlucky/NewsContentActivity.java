@@ -30,6 +30,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class NewsContentActivity extends Activity {
 	private TextView tv_newsContent;
 	private TextView top_title;
 	private ImageButton btn_back;
+	private LinearLayout ll_loading;
 	private String title;//文章标题
 	private String htmlContent;//文章主内容
 	public static final int NEWCONTENTRECEIVED = 1;
@@ -57,6 +59,7 @@ public class NewsContentActivity extends Activity {
 				String reg3 = "<p class=\"v-runtime\">[\\s\\S]*正在播放</p>";
 				htmlContent = htmlContent.replaceAll(reg1, "").replaceAll(reg2, "").replaceAll(reg3, "");
 				tv_newsContent.setText(Html.fromHtml(htmlContent, imageGetter, null));
+				ll_loading.setVisibility(View.INVISIBLE);
 				break;
 			case NewsContentActivity.NEWCONTENTUPDATED:
 				tv_newsContent.setText(Html.fromHtml(htmlContent, imageGetter, null));
@@ -74,6 +77,7 @@ public class NewsContentActivity extends Activity {
 		tv_newsContent = (TextView) findViewById(R.id.tv_newsContent);
 		top_title = (TextView) findViewById(R.id.top_title);
 		btn_back = (ImageButton) findViewById(R.id.btn_back);
+		ll_loading = (LinearLayout) findViewById(R.id.ll_loading);
 		btn_back.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -86,6 +90,8 @@ public class NewsContentActivity extends Activity {
 		String url = this.getIntent().getExtras().getString("href");
 		title = this.getIntent().getExtras().getString("title");
 		this.top_title.setText(title);
+		
+		ll_loading.setVisibility(View.VISIBLE);
 		NewsContentSpider spider = new NewsContentSpider(url);
 		Thread t = new Thread(spider);
 		t.start();

@@ -20,6 +20,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.util.Pair;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -115,6 +117,7 @@ public class NewsHttpClient implements Runnable {
 				SaveImageTitle(title_imgs);
 				
 				ListViewPost(newsactivity.getLv_main());
+				LinearLayoutPost(newsactivity.getLl_loading());
 				
 			}catch(IOException e)
 			{
@@ -134,6 +137,19 @@ public class NewsHttpClient implements Runnable {
 				// TODO Auto-generated method stub
 				NewsListAdapter adapter = new NewsListAdapter(datas,newsactivity,bitmaps);
 				lv.setAdapter(adapter);
+			}
+			
+		});
+	}
+	
+	private void LinearLayoutPost(final LinearLayout ll)
+	{
+		ll.post(new Runnable(){
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				ll.setVisibility(View.INVISIBLE);
 			}
 			
 		});

@@ -69,10 +69,10 @@ public class URLS {
 	public static String AQUARIUS_5 = "http://www.xingzuowu.com/fortune/aquarius/4.html";
 	//双鱼座运势 今日、明日、本周、本月、本年
 	public static String PISCES_1 = "http://www.xingzuowu.com/fortune/pisces/";
-	public static String PISCES_2 = "http://www.xingzuowu.com/fortune/pisces/2.html";
-	public static String PISCES_3 = "http://www.xingzuowu.com/fortune/pisces/3.html";
-	public static String PISCES_4 = "http://www.xingzuowu.com/fortune/pisces/4.html";
-	public static String PISCES_5 = "http://www.xingzuowu.com/fortune/pisces/5.html";
+	public static String PISCES_2 = "http://www.xingzuowu.com/fortune/pisces/1.html";
+	public static String PISCES_3 = "http://www.xingzuowu.com/fortune/pisces/2.html";
+	public static String PISCES_4 = "http://www.xingzuowu.com/fortune/pisces/3.html";
+	public static String PISCES_5 = "http://www.xingzuowu.com/fortune/pisces/4.html";
 	
 	//星闻获取网址
 	public static String NEW_FROM = "http://astro.fashion.qq.com/c/07sj/xz3j_jrxsnm_1.htm";

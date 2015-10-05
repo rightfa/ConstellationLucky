@@ -9,23 +9,54 @@
         android:layout_height="wrap_content"
         layout="@layout/top_bar_2" />
 
-    <ScrollView
-        android:id="@+id/scrollView1"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollView1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-        <TextView
-        android:id="@+id/tv_newsContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="20sp" />
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_newsContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+
+ 		<LinearLayout
+ 		    android:id="@+id/ll_loading"
+ 		    android:layout_width="match_parent"
+ 		    android:layout_height="match_parent"
+ 		    android:gravity="center_vertical|center_horizontal"
+ 		    android:orientation="vertical"
+ 		    android:visibility="invisible" >
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在努力加载中"
+                android:textColorLink="@android:color/black"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold" />
+
         </LinearLayout>
-    </ScrollView>
+    </FrameLayout>
 
 
 

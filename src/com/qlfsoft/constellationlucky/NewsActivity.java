@@ -24,11 +24,16 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 public class NewsActivity extends Activity {
 
 	private ListView lv_main;
+	private LinearLayout ll_loading;
+	public LinearLayout getLl_loading() {
+		return ll_loading;
+	}
 	public ListView getLv_main() {
 		return lv_main;
 	}
@@ -40,6 +45,7 @@ public class NewsActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.news_layout);
 		lv_main = (ListView) findViewById(R.id.nl_main_lv);
+		ll_loading = (LinearLayout)findViewById(R.id.ll_loading);
 		
 		//获取缓存数据（标题和内容）
 		List<Pair<String,String>> datas = new ArrayList<Pair<String,String>>();
@@ -67,6 +73,11 @@ public class NewsActivity extends Activity {
 		}
 		NewsListAdapter adapter = new NewsListAdapter(datas,this,bitmaps);
 		lv_main.setAdapter(adapter);
+		
+		if(datas.size() <= 0)
+		{
+			ll_loading.setVisibility(View.VISIBLE);
+		}
 		
 		NewsHttpClient client = new NewsHttpClient(this);
 		Thread t = new Thread(client);

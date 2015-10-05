@@ -4,10 +4,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/nl_main_lv"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ListView>
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:id="@+id/nl_main_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/ll_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在努力加载中"
+                android:textColorLink="@android:color/black"
+                android:textSize="@dimen/size_20"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
