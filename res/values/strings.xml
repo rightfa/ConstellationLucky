@@ -33,5 +33,13 @@
         <item >测试</item>
         <item >个人信息</item>
     </string-array>
-
+	<string name="user_name">用户名：</string>
+    <string name="user_password">密   码：</string>
+    <string name="login">输入您的账号密码开始新的路程</string>
+    <string name="find_password">找回密码</string>
+    <string name="phone_register">注册</string>
+    <string name="weixin_login">微信登录</string>
+    <string name="other_login">其他方式登录</string>
+    <string name="loginBtn">登   录</string>
+    <string name="title_activity_main">这里是程序的主页面</string>
 </resources>
