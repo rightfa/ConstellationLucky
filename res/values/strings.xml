@@ -42,4 +42,6 @@
     <string name="other_login">其他方式登录</string>
     <string name="loginBtn">登   录</string>
     <string name="title_activity_main">这里是程序的主页面</string>
+    <string name="email">邮   箱：</string>
+    <string name="user_contact"><u>用户协议</u></string>
 </resources>

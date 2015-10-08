@@ -10,8 +10,15 @@
         android:layout_height="45dp"
         android:layout_alignParentTop="true"
         android:background="@drawable/android_title_bg"
-        android:gravity="center_vertical"
+        android:gravity="center_vertical|center_horizontal"
         android:orientation="horizontal" >
+            <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登  录"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/size_25" />
     </LinearLayout>
 
     <ScrollView
