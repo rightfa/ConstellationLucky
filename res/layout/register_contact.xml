@@ -27,7 +27,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/btn_back_background" />
@@ -45,10 +45,11 @@
              android:orientation="vertical" >
 
              <TextView
-                 android:id="@+id/textView2"
+                 android:id="@+id/tv_agreement"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:text="TextView"
+                 android:padding="3dp"
                  android:textSize="16sp" />
 
          </LinearLayout>

@@ -1,5 +1,6 @@
 package com.qlfsoft.constellationlucky;
 
+import com.qlfsoft.constellationlucky.personal.LoginActivity;
 import com.qlfsoft.constellationlucky.test.TestActivity;
 
 import android.app.Activity;
@@ -40,7 +41,7 @@ public class MainActivity extends Activity {
 		LocalActivityManager localActivityManager = new LocalActivityManager(this,false);
 		localActivityManager.dispatchCreate(savedInstanceState);
 		tabhost.setup(localActivityManager);
-		for(int i = 0; i < 3; i++)//1.2版本只添加星闻和运势
+		for(int i = 0; i < 4; i++)//1.2版本只添加星闻和运势
 		{
 			Intent intent = new Intent();
 			switch(i)
@@ -54,7 +55,9 @@ public class MainActivity extends Activity {
 			case 2:
 				intent.setClass(MainActivity.this, TestActivity.class);
 				break;
-				
+			case 3:
+				intent.setClass(MainActivity.this, LoginActivity.class);
+				break;
 			}
 			tabhost.addTab(tabhost.newTabSpec(tabIds[i]).setIndicator(getMenuItem(tabImgs[i],tabNames[i])).setContent(intent));
 		}

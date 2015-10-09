@@ -157,7 +157,6 @@ public final class R {
         public static final int gridView1=0x7f0a003c;
         public static final int grid_icon=0x7f0a003a;
         public static final int grid_name=0x7f0a003b;
-        public static final int imageButton1=0x7f0a005c;
         public static final int imageView1=0x7f0a0061;
         public static final int img_health_lucky=0x7f0a0069;
         public static final int img_love_lucky=0x7f0a004a;
@@ -219,6 +218,7 @@ public final class R {
         public static final int textView8=0x7f0a0057;
         public static final int title=0x7f0a0000;
         public static final int top_title=0x7f0a0068;
+        public static final int tv_agreement=0x7f0a005c;
         public static final int tv_answerA=0x7f0a002a;
         public static final int tv_answerB=0x7f0a002d;
         public static final int tv_answerC=0x7f0a0030;

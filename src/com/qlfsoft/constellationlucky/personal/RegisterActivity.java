@@ -3,6 +3,7 @@ package com.qlfsoft.constellationlucky.personal;
 import com.qlfsoft.constellationlucky.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -46,8 +47,8 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	}
 	
 	private void showAggreement() {
-		// TODO Auto-generated method stub
-		
+		Intent intent = new Intent(this,AggreementActivity.class);
+		startActivity(intent);
 	}
 	private void register() {
 		// TODO Auto-generated method stub

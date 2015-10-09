@@ -42,6 +42,9 @@
         <activity android:name="NewsContentActivity"></activity>
         <activity android:name=".test.TestActivity"></activity>
         <activity android:name=".test.DoTestActivity"></activity>
+        <activity android:name=".personal.AggreementActivity"></activity>
+        <activity android:name=".personal.LoginActivity"></activity>
+        <activity android:name=".personal.RegisterActivity"></activity>
     </application>
 
 </manifest>
