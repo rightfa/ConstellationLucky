@@ -140,6 +140,7 @@
                 android:gravity="center_vertical" >
 
                 <TextView
+                    android:id="@+id/tv_login_findpwd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -148,12 +149,14 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/tv_login_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:text="@string/phone_register"
                     android:textColor="#ff288dfe"
                     android:textSize="15sp" />
+
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
