@@ -1,5 +1,6 @@
 package com.qlfsoft.constellationlucky.personal;
 
+import com.qlfsoft.constellationlucky.MainActivity;
 import com.qlfsoft.constellationlucky.R;
 
 import android.app.Activity;
@@ -101,7 +102,9 @@ public class LoginActivity extends Activity implements OnClickListener {
 		String sp_pwd = sp.getString("password", "");
 		if(sp_name.equals(name) && sp_pwd.equals(pwd))
 		{
-			//登录
+			Intent intent = new Intent(this,MainActivity.class);
+			startActivity(intent);
+			finish();
 		}else
 		{
 			Toast.makeText(this, "用户名或密码错误", Toast.LENGTH_SHORT).show();

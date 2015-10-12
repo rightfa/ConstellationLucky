@@ -1,6 +1,7 @@
 package com.qlfsoft.constellationlucky;
 
 import com.qlfsoft.constellationlucky.personal.LoginActivity;
+import com.qlfsoft.constellationlucky.personal.UserDetailActivity;
 import com.qlfsoft.constellationlucky.test.TestActivity;
 
 import android.app.Activity;
@@ -56,7 +57,17 @@ public class MainActivity extends Activity {
 				intent.setClass(MainActivity.this, TestActivity.class);
 				break;
 			case 3:
-				intent.setClass(MainActivity.this, LoginActivity.class);
+				SharedPreferences sp = this.getSharedPreferences("User", Context.MODE_PRIVATE);
+				String sp_name = sp.getString("name", "");
+				String sp_pwd = sp.getString("password", "");
+				if(sp_name.equals(""))
+				{
+					intent.setClass(MainActivity.this, LoginActivity.class);
+				}else
+				{
+					intent.setClass(MainActivity.this, UserDetailActivity.class);
+					intent.getExtras().putInt("from", 0);
+				}
 				break;
 			}
 			tabhost.addTab(tabhost.newTabSpec(tabIds[i]).setIndicator(getMenuItem(tabImgs[i],tabNames[i])).setContent(intent));

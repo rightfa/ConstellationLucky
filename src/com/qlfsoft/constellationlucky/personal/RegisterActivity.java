@@ -3,9 +3,12 @@ package com.qlfsoft.constellationlucky.personal;
 import com.qlfsoft.constellationlucky.R;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 public class RegisterActivity extends Activity implements OnClickListener{
@@ -51,7 +55,24 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		startActivity(intent);
 	}
 	private void register() {
-		// TODO Auto-generated method stub
+		String email = et_register_name.getText().toString().trim();
+		String pwd = et_register_pwd.getText().toString().trim();
+		if(TextUtils.isEmpty(email) || TextUtils.isEmpty(pwd))
+		{
+			Toast.makeText(this, "” œ‰ªÚ√‹¬Î¥ÌŒÛ", Toast.LENGTH_SHORT).show();
+			return;
+		}else
+		{
+			SharedPreferences sp = this.getSharedPreferences("User", Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = sp.edit();
+			editor.putString("name", email);
+			editor.putString("password", pwd);
+			Toast.makeText(this, "◊¢≤·≥…π¶£°", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(this,UserDetailActivity.class);
+			intent.getExtras().putInt("from", 1);
+			startActivity(intent);
+			finish();
+		}
 		
 	}
 	private void initView()

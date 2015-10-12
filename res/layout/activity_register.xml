@@ -66,6 +66,7 @@
                         android:layout_marginRight="5dp"
                         android:background="#fffbfbfb"
                         android:hint="请输入注册邮箱"
+                        android:inputType="textEmailAddress"
                         android:singleLine="true" />
 
                 </LinearLayout>
