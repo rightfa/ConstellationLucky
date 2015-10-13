@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -67,9 +69,10 @@ public class RegisterActivity extends Activity implements OnClickListener{
 			SharedPreferences.Editor editor = sp.edit();
 			editor.putString("name", email);
 			editor.putString("password", pwd);
+			editor.commit();
 			Toast.makeText(this, "×¢²á³É¹¦£¡", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(this,UserDetailActivity.class);
-			intent.getExtras().putInt("from", 1);
+			intent.putExtra("From", 1);
 			startActivity(intent);
 			finish();
 		}
@@ -92,9 +95,11 @@ public class RegisterActivity extends Activity implements OnClickListener{
 					boolean isChecked) {
 				if(isChecked)
 				{
-					et_register_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+					et_register_pwd.setTransformationMethod(HideReturnsTransformationMethod
+		                    .getInstance());
 				}else{
-					et_register_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+					et_register_pwd.setTransformationMethod(PasswordTransformationMethod
+		                    .getInstance());
 				}
 				
 			}

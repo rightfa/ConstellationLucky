@@ -10,6 +10,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -56,9 +58,11 @@ public class LoginActivity extends Activity implements OnClickListener {
 					boolean isChecked) {
 				if(isChecked)
 				{
-					et_login_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+					et_login_pwd.setTransformationMethod(HideReturnsTransformationMethod
+		                    .getInstance());
 				}else{
-					et_login_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+					et_login_pwd.setTransformationMethod(PasswordTransformationMethod
+		                    .getInstance());
 				}
 				
 			}

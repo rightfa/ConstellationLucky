@@ -138,7 +138,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_nickname"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -203,7 +203,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_constellation"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -232,7 +232,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_home"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -262,7 +262,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_address"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -298,7 +298,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_telephone"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -329,7 +329,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_education"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"
@@ -360,7 +360,7 @@
                     android:textColor="#222222"
                     android:textSize="14sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/about_sex"
                     android:layout_width="fill_parent"
                     android:layout_height="30dip"

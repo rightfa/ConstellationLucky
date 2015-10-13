@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 				}else
 				{
 					intent.setClass(MainActivity.this, UserDetailActivity.class);
-					intent.getExtras().putInt("from", 0);
+					intent.putExtra("From", 0);
 				}
 				break;
 			}
@@ -103,5 +103,10 @@ public class MainActivity extends Activity {
 		Editor editor = sp.edit();
 		editor.putInt(lastMainActivityTab, currentTab);
 		editor.commit();
+	}
+	
+	protected void onDestroy()
+	{
+		super.onDestroy();
 	}
 }

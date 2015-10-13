@@ -45,6 +45,7 @@
         <activity android:name=".personal.AggreementActivity"></activity>
         <activity android:name=".personal.LoginActivity"></activity>
         <activity android:name=".personal.RegisterActivity"></activity>
+        <activity android:name=".personal.UserDetailActivity"></activity>
     </application>
 
 </manifest>
